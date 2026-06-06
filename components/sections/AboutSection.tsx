@@ -163,14 +163,14 @@ export function AboutSection() {
                   marginBottom: 16,
                 }}
               >
-                I'm Dylan — a final-year informatics student at Sebelas Maret University, but more
+                I'm Dylan, a final-year informatics student at Sebelas Maret University, but more
                 accurately: a product builder who happens to code. I've shipped 7 projects, won
-                marketing strategy at Grab, made Top 7 nationally at Hacktiv8 × Meta Llama, and
+                marketing strategy at Grab, made Top 7 nationally at Hacktiv8 x Meta Llama, and
                 currently mentor with Arthur D. Little.
               </p>
               <p style={{ fontSize: 16, lineHeight: 1.75, color: "var(--muted)", maxWidth: 520 }}>
                 My edge isn't raw technical skill. It's seeing the gap between what people need and
-                what gets built — then assembling the team, AI tools, and strategy to actually ship
+                what gets built. Then assembling the team, AI tools, and strategy to actually ship
                 it.
               </p>
             </Reveal>
@@ -183,7 +183,7 @@ export function AboutSection() {
             </div>
           </div>
 
-          {/* RIGHT — photo + facts */}
+          {/* Right column: photo + facts */}
           <div style={{ position: isTablet ? "static" : "sticky", top: 120 }}>
             <Reveal delay={0.1}>
               <div
@@ -193,34 +193,57 @@ export function AboutSection() {
                   overflow: "hidden",
                   background: "#ECEAE5",
                   position: "relative",
-                  marginBottom: 16,
+                  marginBottom: 0,
                 }}
               >
                 <Image
                   src="/dylan.webp"
-                  alt="Dylan, 2026 — Surakarta"
+                  alt="Dylan, 2026 / Surakarta"
                   fill
                   placeholder="blur"
                   blurDataURL="data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoJAAoAAUAmJZQCdAD0rCf7gAD+1z/om1QO2+CfmvNOdDrlFoVYTTDh0N/dG6tunrLvZDWMEAA="
                   style={{ objectFit: "cover", objectPosition: "center 15%" }}
                   sizes="(max-width: 1024px) 100vw, 400px"
                 />
-                {/* Subtle overlay on hover */}
+                {/* Gradient overlay with caption */}
                 <div
                   style={{
                     position: "absolute",
                     bottom: 0,
                     left: 0,
                     right: 0,
-                    height: 60,
-                    background: "linear-gradient(to top, rgba(0,0,0,0.3), transparent)",
+                    padding: "40px 20px 20px",
+                    background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 50%, transparent 100%)",
                     pointerEvents: "none",
                   }}
-                />
+                >
+                  <div
+                    style={{
+                      fontFamily: "var(--mono)",
+                      fontSize: 10,
+                      fontWeight: 500,
+                      letterSpacing: 2.5,
+                      textTransform: "uppercase",
+                      color: "rgba(255,255,255,0.7)",
+                      marginBottom: 4,
+                    }}
+                  >
+                    Portfolio
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: "var(--sans)",
+                      fontSize: 18,
+                      fontWeight: 700,
+                      color: "#FFFFFF",
+                      letterSpacing: "-0.3px",
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    Dylan, 2026 / Surakarta
+                  </div>
+                </div>
               </div>
-              <p className="t-tiny" style={{ color: "var(--subtle)", marginTop: 8 }}>
-                Dylan, 2026 — Surakarta
-              </p>
             </Reveal>
 
             {/* Facts */}

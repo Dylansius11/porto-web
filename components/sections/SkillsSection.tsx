@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useRef } from "react";
+import { Fragment, useState, useRef } from "react";
 import { useInView } from "framer-motion";
 import { useBreakpoint } from "@/lib/useBreakpoint";
 import { Reveal } from "@/components/primitives/Reveal";
@@ -22,7 +22,9 @@ function ToolsMarquee() {
         overflow: "hidden",
         position: "relative",
         width: "100%",
-        marginTop: 24,
+        marginTop: 32,
+        padding: "20px 0",
+        background: "#0A0A0A",
       }}
     >
       {/* Fade edges */}
@@ -32,8 +34,8 @@ function ToolsMarquee() {
           left: 0,
           top: 0,
           bottom: 0,
-          width: 80,
-          background: "linear-gradient(to right, var(--bg), transparent)",
+          width: 100,
+          background: "linear-gradient(to right, #0A0A0A, transparent)",
           zIndex: 2,
           pointerEvents: "none",
         }}
@@ -44,8 +46,8 @@ function ToolsMarquee() {
           right: 0,
           top: 0,
           bottom: 0,
-          width: 80,
-          background: "linear-gradient(to left, var(--bg), transparent)",
+          width: 100,
+          background: "linear-gradient(to left, #0A0A0A, transparent)",
           zIndex: 2,
           pointerEvents: "none",
         }}
@@ -55,8 +57,8 @@ function ToolsMarquee() {
         className="tools-marquee"
         style={{
           display: "flex",
-          gap: 40,
-          animation: "marquee-scroll 30s linear infinite",
+          gap: 48,
+          animation: "marquee-scroll 35s linear infinite",
           width: "fit-content",
         }}
       >
@@ -64,17 +66,19 @@ function ToolsMarquee() {
           <span
             key={`${tool}-${i}`}
             style={{
-              fontSize: "clamp(14px, 1.5vw, 18px)",
+              fontSize: "clamp(18px, 2vw, 24px)",
               fontWeight: 500,
-              color: "var(--fg)",
+              color: "#F8F7F4",
               whiteSpace: "nowrap",
               display: "flex",
               alignItems: "center",
-              gap: 40,
+              gap: 48,
+              fontFamily: "var(--sans)",
+              letterSpacing: "-0.3px",
             }}
           >
             {tool}
-            <span style={{ color: "var(--accent)", opacity: 0.4 }}>/</span>
+            <span style={{ color: "#5E0ED7", opacity: 0.6, fontWeight: 300 }}>/</span>
           </span>
         ))}
       </div>
@@ -162,8 +166,40 @@ function CertCard({ cert, index }: { cert: string; index: number }) {
 }
 
 /* ─────────────────────────────────────────────────────────
+ * SKILL TAG
+ * Individual skill as a visual pill
+ * ───────────────────────────────────────────────────────── */
+
+function SkillTag({ skill }: { skill: string }) {
+  const [hov, setHov] = useState(false);
+
+  return (
+    <span
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      style={{
+        display: "inline-block",
+        padding: "6px 14px",
+        borderRadius: 100,
+        fontSize: 13,
+        fontWeight: 500,
+        color: hov ? "var(--bg)" : "var(--fg)",
+        background: hov ? "var(--fg)" : "var(--surface)",
+        border: "0.5px solid var(--border)",
+        transition: "all 0.25s ease",
+        cursor: "default",
+        whiteSpace: "nowrap",
+        letterSpacing: "0.2px",
+      }}
+    >
+      {skill}
+    </span>
+  );
+}
+
+/* ─────────────────────────────────────────────────────────
  * SKILL CATEGORY CARD
- * Enhanced with hover effects
+ * Enhanced with tag-based skills display
  * ───────────────────────────────────────────────────────── */
 
 function SkillCategory({ cat, index }: { cat: (typeof SKILL_CATS)[0]; index: number }) {
@@ -184,11 +220,12 @@ function SkillCategory({ cat, index }: { cat: (typeof SKILL_CATS)[0]; index: num
         <div
           style={{
             fontWeight: 700,
-            fontSize: 64,
+            fontSize: 72,
             color: "var(--accent)",
-            opacity: 0.35,
+            opacity: 0.25,
             lineHeight: 1,
             fontFamily: "var(--sans)",
+            letterSpacing: "-2px",
           }}
         >
           {cat.num}
@@ -219,21 +256,16 @@ function SkillCategory({ cat, index }: { cat: (typeof SKILL_CATS)[0]; index: num
         />
 
         {/* Brief */}
-        <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.6, marginBottom: 20 }}>
+        <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.6, marginBottom: 24 }}>
           {cat.brief}
         </p>
 
-        {/* Skills list */}
-        <p style={{ fontSize: 15, color: "var(--fg)", lineHeight: 2 }}>
-          {cat.skills.map((s, j) => (
-            <Fragment key={s}>
-              {s}
-              {j < cat.skills.length - 1 && (
-                <span style={{ color: "var(--accent)", margin: "0 6px" }}>·</span>
-              )}
-            </Fragment>
+        {/* Skills as tags */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          {cat.skills.map((s) => (
+            <SkillTag key={s} skill={s} />
           ))}
-        </p>
+        </div>
       </div>
     </Reveal>
   );

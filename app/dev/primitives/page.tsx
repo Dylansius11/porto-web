@@ -20,7 +20,7 @@ export default function PrimitivesDevPage() {
           marginBottom: 120,
         }}
       >
-        Primitives — dev preview (delete before launch)
+        Primitives | dev preview (delete before launch)
       </h1>
 
       {/* Reveal */}
@@ -42,7 +42,7 @@ export default function PrimitivesDevPage() {
         </Reveal>
         <Reveal delay={0.2}>
           <p style={{ fontSize: 24, fontWeight: 300, marginTop: 16 }}>
-            Third with 0.2s delay — then a <Sep /> separator dot
+            Third with 0.2s delay, then a <Sep /> separator dot
             <Pd />
           </p>
         </Reveal>

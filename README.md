@@ -1,11 +1,11 @@
 # porto-web
 
-Dylan's portfolio — Next.js 16.2.6 + React 19 + TypeScript + Tailwind CSS 4.
+Dylan's portfolio. Next.js 16.2.6 + React 19 + TypeScript + Tailwind CSS 4.
 
 ## Prerequisites
 
-- [nvm](https://github.com/nvm-sh/nvm) — Node version manager
-- [pnpm](https://pnpm.io) — Package manager
+- [nvm](https://github.com/nvm-sh/nvm) | Node version manager
+- [pnpm](https://pnpm.io) | Package manager
 
 ## Setup
 

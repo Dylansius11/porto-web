@@ -227,7 +227,7 @@ export function HeroSection({ loaderDone }: HeroSectionProps) {
               <strong style={{ fontWeight: 500, color: "var(--fg)" }}>
                 Dylansius Putra Prasetio
               </strong>{" "}
-              — turning market gaps into working systems, with AI.
+              , turning market gaps into working systems, with AI.
             </p>
           </motion.div>
 
@@ -243,10 +243,10 @@ export function HeroSection({ loaderDone }: HeroSectionProps) {
             }}
           >
             <button className="btn-dark" onClick={() => scrollTo("projects")}>
-              See My Work ↗
+              See My Work
             </button>
             <a href="/cv.pdf" className="btn-ghost" download>
-              Download CV →
+              Download CV
             </a>
           </motion.div>
 
@@ -308,7 +308,7 @@ export function HeroSection({ loaderDone }: HeroSectionProps) {
                   transform: "translate(-50%,-50%)",
                 }}
               />
-              {/* Blob image — TODO: swap static PNG with Spline embed */}
+              {/* Blob image. TODO: swap static PNG with Spline embed */}
               <div
                 style={{
                   animation: "blobFloat 8s ease-in-out infinite",
@@ -341,7 +341,7 @@ export function HeroSection({ loaderDone }: HeroSectionProps) {
                   style={{
                     fontFamily: "var(--sans)",
                     fontWeight: 700,
-                    fontSize: "clamp(22px,2.8vw,34px)",
+                    fontSize: "clamp(28px,3.5vw,44px)",
                     lineHeight: 1,
                     color: "var(--fg)",
                   }}

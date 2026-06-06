@@ -71,7 +71,7 @@ function ProjectCard({ p, delay }: { p: Project; delay: number }) {
           </p>
         </div>
 
-        {/* Bottom area — always sits at the bottom of the card */}
+        {/* Bottom area. Always sits at the bottom of the card */}
         <div style={{ marginTop: "auto" }}>
           <div className="divider" style={{ margin: "18px 0" }} />
 
@@ -111,10 +111,10 @@ function ProjectCard({ p, delay }: { p: Project; delay: number }) {
             }}
           >
             <div>
-              <div className="t-tiny" style={{ color: "var(--muted)" }}>
+              <div style={{ fontSize: 14, fontWeight: 500, color: "var(--fg)" }}>
                 {p.role}
               </div>
-              <div className="t-tiny" style={{ color: "var(--subtle)", marginTop: 2 }}>
+              <div className="t-tiny" style={{ color: "var(--subtle)", marginTop: 3 }}>
                 {p.period} · {p.context}
               </div>
             </div>
@@ -153,6 +153,7 @@ export function ProjectsSection() {
           style={{
             display: "grid",
             gridTemplateColumns: isMobile ? "1fr" : "repeat(2,1fr)",
+            gridAutoRows: "1fr",
             gap: 20,
             marginTop: 64,
           }}

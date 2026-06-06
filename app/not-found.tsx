@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Page Not Found — Dylansius Putra Prasetio",
+  title: "Page Not Found | Dylansius Putra Prasetio",
   robots: { index: false, follow: false },
 };
 

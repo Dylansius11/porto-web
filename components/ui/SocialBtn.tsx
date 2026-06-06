@@ -63,6 +63,6 @@ export function SocialBtn({ type, href }: SocialBtnProps) {
       {inner}
     </a>
   ) : (
-    <span title={`${type} — coming soon`}>{inner}</span>
+    <span title={`${type} | coming soon`}>{inner}</span>
   );
 }

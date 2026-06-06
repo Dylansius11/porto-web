@@ -9,12 +9,21 @@ import { CONTACT_LINKS, type ContactLink } from "@/data/contact";
 
 function ContactLinkItem({ item, delay }: { item: ContactLink; delay: number }) {
   const [hov, setHov] = useState(false);
+  const isAnchor = item.href.startsWith("#");
+  const Wrapper = isAnchor ? "button" : "a";
+  const wrapperProps = isAnchor
+    ? {
+        onClick: () => {
+          const el = document.getElementById(item.href.slice(1));
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        },
+      }
+    : { href: item.href, target: "_blank", rel: "noopener noreferrer" };
+
   return (
     <Reveal delay={delay}>
-      <a
-        href={item.href}
-        target="_blank"
-        rel="noopener noreferrer"
+      <Wrapper
+        {...wrapperProps}
         aria-label={`${item.label}: ${item.value}`}
         onMouseEnter={() => setHov(true)}
         onMouseLeave={() => setHov(false)}
@@ -30,6 +39,12 @@ function ContactLinkItem({ item, delay }: { item: ContactLink; delay: number }) 
           margin: "0 -8px",
           padding: hov ? "16px 8px" : "16px 0",
           borderRadius: 4,
+          cursor: "pointer",
+          width: "100%",
+          textAlign: "left",
+          border: "none",
+          outline: "none",
+          fontFamily: "inherit",
         }}
       >
         <div>
@@ -65,7 +80,7 @@ function ContactLinkItem({ item, delay }: { item: ContactLink; delay: number }) 
         >
           ↗
         </span>
-      </a>
+      </Wrapper>
     </Reveal>
   );
 }

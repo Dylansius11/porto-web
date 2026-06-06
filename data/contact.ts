@@ -17,12 +17,12 @@ export const CONTACT_LINKS: ContactLink[] = [
   },
   {
     label: "TWITTER / X",
-    value: "@royalecardarena",
-    href: "https://x.com/royalecardarena",
+    value: "@LannImpactID",
+    href: "https://x.com/LannImpactID",
   },
   {
     label: "BUILDING NOW",
-    value: "@Lokal_AI",
-    href: "https://x.com/Lokal_AI",
+    value: "RoyaleCard · LOKAL · Personal Tools",
+    href: "#projects",
   },
 ];

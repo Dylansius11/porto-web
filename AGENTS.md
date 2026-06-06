@@ -2,7 +2,7 @@
 
 ## Project Context
 
-**Name:** Dylansius Putra Prasetio — Portfolio Website
+**Name:** Dylansius Putra Prasetio | Portfolio Website
 **Owner:** Dylan (Dylansius Putra Prasetio)
 **Location:** Surakarta, Indonesia
 **Positioning:** Product builder × AI strategist × startup operator
@@ -64,7 +64,7 @@ public/            → images, cv.pdf
 ## Conventions
 
 - All sections are Client Components (`'use client'`) when they use Framer Motion
-- `page.tsx` is a Server Component — it dynamically imports client sections
+- `page.tsx` is a Server Component: it dynamically imports client sections
 - Use `next/image` for all images, no raw `<img>` tags
 - All external links use `rel="noopener noreferrer" target="_blank"`
 - Respect `prefers-reduced-motion` in every animation
@@ -73,25 +73,25 @@ public/            → images, cv.pdf
 
 ## RULES
 
-1. **High quality Code** — easy to understand structure, clean code, minimal magic
-2. **Always give the best and highest quality output** — every detail matters
-3. **Don't hallucinate** — use skills, agents, docs, ctx7 for docs. Verify everything
-4. **Make efficient and robust output** — not overkill, but high performance
-5. **Responsiveness is a must** — content/assets must never feel "weird" on any screen
-6. **High and premium quality performance** — low latency, no lag, WOW factor interface
-7. **Robust infrastructure** — no AI SLOP design or copywriting
-8. **Always ask if anything feels unclear** — never assume, confirm with user
-9. **Iterate and learn** — if an approach fails, try a different one with highest quality in mind. Efficiency, premium feel, great animation, and performance are paramount
+1. **High quality Code** | easy to understand structure, clean code, minimal magic
+2. **Always give the best and highest quality output** | every detail matters
+3. **Don't hallucinate** | use skills, agents, docs, ctx7 for docs. Verify everything
+4. **Make efficient and robust output** | not overkill, but high performance
+5. **Responsiveness is a must** | content/assets must never feel "weird" on any screen
+6. **High and premium quality performance** | low latency, no lag, WOW factor interface
+7. **Robust infrastructure** | no AI SLOP design or copywriting
+8. **Always ask if anything feels unclear** | never assume, confirm with user
+9. **Iterate and learn** | if an approach fails, try a different one with highest quality in mind. Efficiency, premium feel, great animation, and performance are paramount
 
 ## Additional Guidelines
 
 - Be creative and innovative on sections that feel "dull", but ensure it matches the overall editorial, premium design
 - Reference docs: `docs/LANDING_PAGE.md` (design brief) and `docs/PORTFOLIO_WEB.md` (engineering spec)
 - Never use Inter, Roboto, or generic system fonts
-- Never use weight 600 for body text — only 400, 500, or 700
+- Never use weight 600 for body text | only 400, 500, or 700
 - Purple is the accent, not the theme. Black typography is the design
 - Generous whitespace is a design element, not emptiness
-- Stats displayed like financial data — structured, confident
+- Stats displayed like financial data | structured, confident
 
 ---
 

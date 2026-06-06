@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
     role: "Product Lead & Founder",
     period: "Aug 2025 – Nov 2025",
     context: "Hacktiv8 × Meta Llama",
-    links: { github: "#", web: "#", x: "#", linkedin: "#" },
+    links: { github: "", web: "https://simplybox.id", x: "", linkedin: "https://uns.ac.id/id/uns-students/berdayakan-teknologi-tingkat-lanjut-dua-mahasiswa-uns-naik-ke-panggung-top-7-meta-accelerate-with-llama.html" },
   },
   {
     category: "Web3 · Gaming · Strategy",
@@ -47,12 +47,12 @@ export const PROJECTS: Project[] = [
     stats: [
       { n: "1st", label: "OF ITS KIND\nON SOLANA" },
       { n: "2D", label: "PIXEL-ART\nINTERFACE" },
-      { n: "EARN+\nLEARN", label: "DUAL VALUE\nLOOP" },
+      { n: "EARN + LEARN", label: "DUAL VALUE\nLOOP" },
     ],
     role: "Co-Founder",
     period: "2025 – Present",
     context: "Configure Cards. Enter the Arena.",
-    links: { github: "#", web: "#", x: "https://x.com/royalecardarena", instagram: "#", linkedin: "#" },
+    links: { github: "", web: "https://royalecard-arena.vercel.app", x: "https://x.com/royalecardarena", instagram: "", youtube: "https://youtu.be/PJHXcDJxeS8" },
   },
   {
     category: "AI · Data · Web3",
@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     role: "Co-Founder",
     period: "2025 – Present",
     context: "Built on Solana",
-    links: { github: "#", web: "#", x: "https://x.com/Lokal_AI", instagram: "#" },
+    links: { github: "", web: "https://lokal-fnb.vercel.app", x: "https://x.com/Lokal_AI", youtube: "https://youtu.be/xa1vsCjL6ZI" },
   },
   {
     category: "ESG · B2B · Fintech",
@@ -86,14 +86,14 @@ export const PROJECTS: Project[] = [
     role: "Project Manager & Founder",
     period: "Sep 2025 – Nov 2025",
     context: "IEEYEP × DAKM UNS",
-    links: { github: "#", web: "#", linkedin: "#" },
+    links: { github: "", web: "", linkedin: "" },
   },
   {
     category: "Productivity · AI",
     badge: "PERSONAL R&D",
     badgeColor: { bg: "#F1EFE8", text: "#444441" },
     title: "Personal Tools",
-    oneliner: "Notion + Trello + Spreadsheets — unified.",
+    oneliner: "Notion + Trello + Spreadsheets. Unified.",
     desc: "Built an all-in-one workspace combining Notion's flexibility, Trello's clarity, and spreadsheets' power. Supercharges product development without the app-switching tax.",
     stats: [
       { n: "3-in-1", label: "TOOLS\nUNIFIED" },
@@ -103,6 +103,6 @@ export const PROJECTS: Project[] = [
     role: "Solo Builder",
     period: "2025 – Present",
     context: "Built for myself, opening to others",
-    links: { github: "#", web: "#", youtube: "#" },
+    links: { github: "", web: "https://semper-tools.vercel.app", youtube: "" },
   },
 ];
