@@ -119,9 +119,11 @@ export function AboutSection() {
                 }}
               >
                 <Image
-                  src="/dylan.jpeg"
+                  src="/dylan.webp"
                   alt="Dylan, 2026 — Surakarta"
                   fill
+                  placeholder="blur"
+                  blurDataURL="data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoJAAoAAUAmJZQCdAD0rCf7gAD+1z/om1QO2+CfmvNOdDrlFoVYTTDh0N/dG6tunrLvZDWMEAA="
                   style={{ objectFit: "cover", objectPosition: "center 15%" }}
                   sizes="(max-width: 1024px) 100vw, 400px"
                 />

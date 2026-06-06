@@ -317,11 +317,13 @@ export function HeroSection({ loaderDone }: HeroSectionProps) {
                 }}
               >
                 <Image
-                  src="/hero-section.png"
+                  src="/hero-section.webp"
                   alt="3D sphere"
                   width={300}
                   height={300}
                   priority
+                  placeholder="blur"
+                  blurDataURL="data:image/webp;base64,UklGRs4AAABXRUJQVlA4WAoAAAAQAAAACQAACQAAQUxQSGEAAAANcFvbthJd3N0hhQZgLJpoKrciNHJ3dysiIiZASHKVWGg2qq3I02bLu+Xe1yWRAmC5/LM8vQMgtChIJ/jruNTrH4G2aRIAXrNZzfcVANt+r3FjffuxGBzp7uru2o9ln1UBAFZQOCBGAAAA8AEAnQEqCgAKAAFAJiWUAuwBC2FK35BgAP7vjdshm91GIJRcAC7kk6myFe8XkG+VODWXxEIEOsiK1YXEzYlMAvUFUIAAAA=="
                   style={{ objectFit: "contain", display: "block" }}
                 />
               </div>

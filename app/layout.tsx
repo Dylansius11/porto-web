@@ -51,6 +51,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${dmSans.variable} ${dmMono.variable}`}>
+      <head>
+        <link rel="preload" href="/hero-section.webp" as="image" type="image/webp" />
+        <link rel="preload" href="/dylan.webp" as="image" type="image/webp" />
+      </head>
       <body>
         <SkipToContent />
         <PageLoaderProvider>
