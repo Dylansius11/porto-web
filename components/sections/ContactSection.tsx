@@ -23,14 +23,24 @@ function ContactLinkItem({ item, delay }: { item: ContactLink; delay: number }) 
           justifyContent: "space-between",
           alignItems: "flex-end",
           gap: 16,
-          padding: "16px 0",
           borderBottom: ".5px solid #2A2A2A",
           textDecoration: "none",
-          transition: "opacity 0.2s",
+          transition: "background 0.3s ease, padding 0.3s ease",
+          background: hov ? "rgba(255,255,255,0.03)" : "transparent",
+          margin: "0 -8px",
+          padding: hov ? "16px 8px" : "16px 0",
+          borderRadius: 4,
         }}
       >
         <div>
-          <div className="t-tiny" style={{ color: "#666", marginBottom: 6 }}>
+          <div
+            className="t-tiny"
+            style={{
+              color: hov ? "var(--accent)" : "#666",
+              marginBottom: 6,
+              transition: "color 0.25s",
+            }}
+          >
             {item.label}
           </div>
           <div
@@ -38,7 +48,8 @@ function ContactLinkItem({ item, delay }: { item: ContactLink; delay: number }) 
               fontSize: "clamp(15px,1.6vw,20px)",
               fontWeight: 500,
               color: hov ? "var(--accent)" : "#F8F7F4",
-              transition: "color 0.25s",
+              transition: "color 0.25s, transform 0.25s",
+              transform: hov ? "translateX(4px)" : "translateX(0)",
             }}
           >
             {item.value}
@@ -48,7 +59,7 @@ function ContactLinkItem({ item, delay }: { item: ContactLink; delay: number }) 
           style={{
             fontSize: 18,
             color: hov ? "var(--accent)" : "#666",
-            transform: hov ? "translate(2px,-2px)" : "translate(0,0)",
+            transform: hov ? "translate(4px,-4px)" : "translate(0,0)",
             transition: "color 0.25s, transform 0.25s",
           }}
         >

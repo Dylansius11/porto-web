@@ -383,6 +383,20 @@ body {
   }
 }
 
+/* ── Marquee animation ── */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+.tools-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   html {

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
@@ -8,6 +9,100 @@ import { Reveal } from "@/components/primitives/Reveal";
 import { ClipReveal } from "@/components/primitives/ClipReveal";
 import { Pd } from "@/components/primitives/Pd";
 import { WHAT_I_DO, FACTS } from "@/data/about";
+
+function WhatIDoItem({ label, value, index }: { label: string; value: string; index: number }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <Reveal delay={0.36 + index * 0.08}>
+      <div
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{
+          display: "flex",
+          gap: 24,
+          borderTop: ".5px solid var(--border)",
+          alignItems: "baseline",
+          transition: "background 0.3s ease, padding 0.3s ease",
+          background: hovered ? "rgba(255,255,255,0.5)" : "transparent",
+          margin: "0 -12px",
+          padding: hovered ? "16px 12px" : "16px 0",
+          borderRadius: 4,
+        }}
+      >
+        <span
+          className="t-tiny"
+          style={{
+            color: hovered ? "var(--accent)" : "var(--subtle)",
+            width: 80,
+            flexShrink: 0,
+            transition: "color 0.3s ease",
+          }}
+        >
+          {label}
+        </span>
+        <span
+          style={{
+            fontSize: 15,
+            fontWeight: 500,
+            color: "var(--fg)",
+            lineHeight: 1.4,
+            transition: "transform 0.2s ease",
+            transform: hovered ? "translateX(4px)" : "translateX(0)",
+          }}
+        >
+          {value}
+        </span>
+      </div>
+    </Reveal>
+  );
+}
+
+function FactItem({ label, value }: { label: string; value: string }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "baseline",
+        gap: 16,
+        borderTop: ".5px solid var(--border)",
+        transition: "background 0.3s ease",
+        background: hovered ? "rgba(255,255,255,0.5)" : "transparent",
+        margin: "0 -8px",
+        padding: hovered ? "10px 8px" : "10px 0",
+        borderRadius: 4,
+      }}
+    >
+      <span
+        className="t-tiny"
+        style={{
+          color: hovered ? "var(--accent)" : "var(--subtle)",
+          flexShrink: 0,
+          transition: "color 0.3s ease",
+        }}
+      >
+        {label}
+      </span>
+      <span
+        style={{
+          fontSize: 13,
+          fontWeight: 500,
+          color: "var(--fg)",
+          textAlign: "right",
+          transition: "transform 0.2s ease",
+          transform: hovered ? "translateX(-4px)" : "translateX(0)",
+        }}
+      >
+        {value}
+      </span>
+    </div>
+  );
+}
 
 export function AboutSection() {
   const ref = useRef<HTMLElement>(null);
@@ -29,7 +124,7 @@ export function AboutSection() {
               01 / About
             </span>
           </div>
-          <div className="divider" />
+          <div style={{ height: 0.5, background: "var(--border)", width: "100%" }} />
         </Reveal>
 
         {/* Body grid */}
@@ -83,24 +178,7 @@ export function AboutSection() {
             {/* What I do */}
             <div style={{ marginTop: 48 }}>
               {WHAT_I_DO.map(({ label, value }, i) => (
-                <Reveal key={label} delay={0.36 + i * 0.08}>
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: 24,
-                      padding: "16px 0",
-                      borderTop: ".5px solid var(--border)",
-                      alignItems: "baseline",
-                    }}
-                  >
-                    <span className="t-tiny" style={{ color: "var(--subtle)", width: 80, flexShrink: 0 }}>
-                      {label}
-                    </span>
-                    <span style={{ fontSize: 15, fontWeight: 500, color: "var(--fg)", lineHeight: 1.4 }}>
-                      {value}
-                    </span>
-                  </div>
-                </Reveal>
+                <WhatIDoItem key={label} label={label} value={value} index={i} />
               ))}
             </div>
           </div>
@@ -127,6 +205,18 @@ export function AboutSection() {
                   style={{ objectFit: "cover", objectPosition: "center 15%" }}
                   sizes="(max-width: 1024px) 100vw, 400px"
                 />
+                {/* Subtle overlay on hover */}
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: 60,
+                    background: "linear-gradient(to top, rgba(0,0,0,0.3), transparent)",
+                    pointerEvents: "none",
+                  }}
+                />
               </div>
               <p className="t-tiny" style={{ color: "var(--subtle)", marginTop: 8 }}>
                 Dylan, 2026 — Surakarta
@@ -136,26 +226,7 @@ export function AboutSection() {
             {/* Facts */}
             <Reveal delay={0.2} style={{ marginTop: 24 }}>
               {FACTS.map(({ label, value }) => (
-                <div
-                  key={label}
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "baseline",
-                    gap: 16,
-                    padding: "10px 0",
-                    borderTop: ".5px solid var(--border)",
-                  }}
-                >
-                  <span className="t-tiny" style={{ color: "var(--subtle)", flexShrink: 0 }}>
-                    {label}
-                  </span>
-                  <span
-                    style={{ fontSize: 13, fontWeight: 500, color: "var(--fg)", textAlign: "right" }}
-                  >
-                    {value}
-                  </span>
-                </div>
+                <FactItem key={label} label={label} value={value} />
               ))}
             </Reveal>
           </div>

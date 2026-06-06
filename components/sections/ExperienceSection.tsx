@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useBreakpoint } from "@/lib/useBreakpoint";
 import { Reveal } from "@/components/primitives/Reveal";
 import { SectionHeader } from "@/components/primitives/SectionHeader";
@@ -22,17 +23,26 @@ function ExperienceEntryItem({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px 0px" });
+  const [hovered, setHovered] = useState(false);
 
   return (
     <Reveal delay={delay}>
       <div
         ref={ref}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         style={{
           display: "grid",
           gridTemplateColumns: isMobile ? "1fr" : "220px 1fr",
           gap: isMobile ? 16 : 48,
-          paddingBottom: isLast ? 0 : 56,
           position: "relative",
+          transition: "background 0.3s ease",
+          background: hovered ? "rgba(255,255,255,0.4)" : "transparent",
+          margin: "0 -20px",
+          padding: isLast
+            ? (hovered ? "20px 20px" : "0 20px")
+            : (hovered ? "20px 20px 56px" : "0 20px 56px"),
+          borderRadius: 8,
         }}
       >
         {/* Timeline dot */}
@@ -48,19 +58,37 @@ function ExperienceEntryItem({
               width: 8,
               height: 8,
               borderRadius: "50%",
-              background: "var(--accent)",
+              background: hovered ? "var(--fg)" : "var(--accent)",
               zIndex: 2,
+              transition: "background 0.3s ease",
+              boxShadow: hovered ? "0 0 0 4px rgba(94,14,215,0.15)" : "none",
             }}
           />
         )}
 
         {/* LEFT */}
         <div style={{ paddingRight: isMobile ? 0 : 32 }}>
-          <div className="t-label" style={{ color: "var(--accent)", fontSize: 11, marginBottom: 8 }}>
+          <div
+            className="t-label"
+            style={{
+              color: hovered ? "var(--fg)" : "var(--accent)",
+              fontSize: 11,
+              marginBottom: 8,
+              transition: "color 0.3s ease",
+            }}
+          >
             {entry.date}
           </div>
           <div
-            style={{ fontWeight: 700, fontSize: 20, color: "var(--fg)", lineHeight: 1.2, marginBottom: 4 }}
+            style={{
+              fontWeight: 700,
+              fontSize: 20,
+              color: "var(--fg)",
+              lineHeight: 1.2,
+              marginBottom: 4,
+              transition: "transform 0.2s ease",
+              transform: hovered ? "translateX(4px)" : "translateX(0)",
+            }}
           >
             {entry.company}
           </div>
@@ -75,11 +103,22 @@ function ExperienceEntryItem({
           style={{
             paddingLeft: isMobile ? 0 : 40,
             borderLeft: isMobile ? "none" : ".5px solid var(--border)",
+            transition: "border-color 0.3s ease",
+            borderColor: hovered ? "var(--fg)" : undefined,
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
             {entry.bullets.map((b, i) => (
-              <p key={i} style={{ fontSize: 15, color: "var(--fg)", lineHeight: 1.65 }}>
+              <p
+                key={i}
+                style={{
+                  fontSize: 15,
+                  color: "var(--fg)",
+                  lineHeight: 1.65,
+                  transition: "opacity 0.2s ease",
+                  opacity: hovered ? 1 : 0.85,
+                }}
+              >
                 {b}
               </p>
             ))}
@@ -89,7 +128,12 @@ function ExperienceEntryItem({
               <span
                 key={t}
                 className="tag"
-                style={{ background: "var(--surface)", border: ".5px solid var(--border)", color: "#555" }}
+                style={{
+                  background: hovered ? "var(--fg)" : "var(--surface)",
+                  border: ".5px solid var(--border)",
+                  color: hovered ? "var(--bg)" : "#555",
+                  transition: "all 0.3s ease",
+                }}
               >
                 {t}
               </span>

@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { useInView } from "framer-motion";
+import { useState } from "react";
 import { useBreakpoint } from "@/lib/useBreakpoint";
 import { Reveal } from "@/components/primitives/Reveal";
 import { SectionHeader } from "@/components/primitives/SectionHeader";
@@ -10,9 +9,25 @@ import { SocialBtn } from "@/components/ui/SocialBtn";
 import { PROJECTS, type Project, type SocialType } from "@/data/projects";
 
 function ProjectCard({ p, delay }: { p: Project; delay: number }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <Reveal delay={delay}>
-      <div className="card" style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+      <div
+        className="card"
+        style={{
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          transition: "transform 0.3s var(--ease), box-shadow 0.3s ease, border-color 0.3s ease",
+          transform: hovered ? "translateY(-4px)" : "translateY(0)",
+          boxShadow: hovered ? "0 12px 40px rgba(0,0,0,0.08)" : "none",
+          borderColor: hovered ? "var(--fg)" : undefined,
+          cursor: "pointer",
+        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
         {/* Top content area */}
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
           {/* Top row */}
